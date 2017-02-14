@@ -23,6 +23,10 @@ public class ApplicationPresenter implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Perform linear regression
+        // TODO
+
+        // Plot data
         // TODO
     }
 }
