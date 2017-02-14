@@ -1,8 +1,12 @@
 package fr.utbm.mlta.presenter;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.ScatterChart;
+import javafx.scene.chart.XYChart;
 
 import javax.inject.Inject;
 import java.net.URL;
@@ -19,7 +23,7 @@ public class ApplicationPresenter implements Initializable {
     @Inject private Double[] dataY;
 
     // View attributes
-    @FXML private LineChart<Double, Double> chart;
+    @FXML private ScatterChart<Double, Double> chart;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -27,6 +31,13 @@ public class ApplicationPresenter implements Initializable {
         // TODO
 
         // Plot data
-        // TODO
+        final XYChart.Series<Double, Double> raw = new XYChart.Series<>();
+        raw.setName("Input");
+
+        for(int idx = 0; idx < dataX.length; idx++) {
+            raw.getData().add(new XYChart.Data<>(dataX[idx], dataY[idx]));
+        }
+
+        chart.getData().add(raw);
     }
 }

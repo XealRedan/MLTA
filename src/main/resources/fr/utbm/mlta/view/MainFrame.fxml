@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.layout.BorderPane?>
 
-
-<Pane fx:controller="fr.utbm.mlta.presenter.ApplicationPresenter" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-      xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
-    <LineChart prefHeight="400.0" prefWidth="600.0" fx:id="chart">
-      <xAxis>
-          <CategoryAxis side="BOTTOM"/>
-      </xAxis>
-      <yAxis>
-          <NumberAxis side="LEFT"/>
-      </yAxis>
-    </LineChart>
-</Pane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.utbm.mlta.presenter.ApplicationPresenter">
+    <center>
+        <ScatterChart fx:id="chart" prefHeight="400" prefWidth="600">
+            <xAxis>
+                <NumberAxis side="BOTTOM"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT"/>
+            </yAxis>
+        </ScatterChart>
+    </center>
+</BorderPane>
