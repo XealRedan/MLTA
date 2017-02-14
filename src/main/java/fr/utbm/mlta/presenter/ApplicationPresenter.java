@@ -15,8 +15,8 @@ import java.util.ResourceBundle;
 public class ApplicationPresenter implements Initializable {
 
     // Model attributes
-    @Inject private Double[] xData;
-    @Inject private Double[] yData;
+    @Inject private Double[] dataX;
+    @Inject private Double[] dataY;
 
     // View attributes
     @FXML private LineChart<Double, Double> chart;
