@@ -24,7 +24,7 @@ public class ApplicationPresenter implements Initializable {
     @Inject private double[] normalEquationsResult;
 
     // View attributes
-    @FXML private ScatterChart<Double, Double> chart;
+    @FXML private XYChart<Double, Double> chart;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -3,17 +3,18 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.ScatterChart?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.chart.LineChart?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="fr.utbm.mlta.presenter.ApplicationPresenter">
     <center>
-        <ScatterChart fx:id="chart" prefHeight="400" prefWidth="600">
+        <LineChart fx:id="chart" prefHeight="400" prefWidth="600">
             <xAxis>
                 <NumberAxis side="BOTTOM"/>
             </xAxis>
             <yAxis>
                 <NumberAxis side="LEFT"/>
             </yAxis>
-        </ScatterChart>
+        </LineChart>
     </center>
 </BorderPane>
