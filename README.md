@@ -38,6 +38,11 @@ Fig.3 - X = 0, sigma = 2
 ![Fig.4 - X = 0, sigma = 10](images/x0-sigma10.png)
 Fig.4 - X = 0, sigma = 10
 
-On these figures, we can see that as sigma increases, the orange line (the LWLR) coefficient decreases. It is due to the
+On these figures (1 - 4), we can see that as sigma increases, the orange line (the LWLR) coefficient decreases. It is due to the
 fact that the rightest points weights (far from x = 0) are increasing as sigma is increasing, and thus are more taken
 into account by the linear regression, so the orange line lean toward these points.
+
+![Fig.5 - X = 10, sigma = 1](images/x10-sigma1.png)
+Fig.5 - X = 10, sigma = 1
+
+In fig. 5, x is set to 10 and sigma is set to 0.1. So the weight is higher for points around x = 10.
