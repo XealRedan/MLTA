@@ -10,10 +10,10 @@ The purpose of the project is to illustrate two linear regression methods freque
 
 ## Compilation
 
-The project is made in Java 8. It can be built with Maven using the command:
+The project is made in Java 8. It can be built easily with Maven using the command:
 
 ```
-mvn package
+mvn jfx:native
 ```
 
 ## Results
@@ -25,3 +25,19 @@ The red line shows the results of applying normal equations method. The orange o
 LWLR takes two parameters x (central value for weights) and sigma (a factor adjusting the weights for values according
 to their distance from x: if sigma is small, weight decrease really quickly with distance to x, if sigma is big,
 weight decrease slowly with distance to x).
+
+![Fig.1 - X = 0, sigma = 0.1](images/x0-sigma0_1.png)
+Fig.1 - X = 0, sigma = 0.1
+
+![Fig.2 - X = 0, sigma = 0.3](images/x0-sigma0_3.png)
+Fig.2 - X = 0, sigma = 0.3
+
+![Fig.3 - X = 0, sigma = 2](images/x0-sigma2.png)
+Fig.3 - X = 0, sigma = 2
+
+![Fig.4 - X = 0, sigma = 10](images/x0-sigma10.png)
+Fig.4 - X = 0, sigma = 10
+
+On these figures, we can see that as sigma increases, the orange line (the LWLR) coefficient decreases. It is due to the
+fact that the rightest points weights (far from x = 0) are increasing as sigma is increasing, and thus are more taken
+into account by the linear regression, so the orange line lean toward these points.
