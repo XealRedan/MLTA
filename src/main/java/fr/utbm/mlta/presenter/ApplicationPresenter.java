@@ -1,14 +1,11 @@
 package fr.utbm.mlta.presenter;
 
-import fr.utbm.mlta.analysis.ILinearRegression;
 import fr.utbm.mlta.analysis.LocallyWeightedLinearRegression;
 import fr.utbm.mlta.analysis.NormalEquationsLinearRegression;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Slider;
 
@@ -72,10 +69,13 @@ public class ApplicationPresenter implements Initializable {
         // Update series
         normalEquations.getData().clear();
 
-        for(int idx = 0; idx < dataX.length; idx++) {
-            normalEquations.getData().add(
-                    new XYChart.Data<>(dataX[idx], normalEquationsResult[0] * dataX[idx]));
+        final ObservableList<XYChart.Data<Double, Double>> data = FXCollections.observableArrayList();
+
+        for (double aDataX : dataX) {
+            data.add(new XYChart.Data<>(aDataX, normalEquationsResult[0] * aDataX));
         }
+
+        normalEquations.setData(data);
     }
 
     /**
@@ -89,10 +89,13 @@ public class ApplicationPresenter implements Initializable {
         // Update series
         this.locallyWeighted.getData().clear();
 
-        for(int idx = 0; idx < dataX.length; idx++) {
-            locallyWeighted.getData().add(
-                    new XYChart.Data<>(dataX[idx], locallyWeightedLinearRegressionResult[0] * dataX[idx]));
+        final ObservableList<XYChart.Data<Double, Double>> data = FXCollections.observableArrayList();
+
+        for (double aDataX : dataX) {
+            data.add(new XYChart.Data<>(aDataX, locallyWeightedLinearRegressionResult[0] * aDataX));
         }
+
+        locallyWeighted.setData(data);
     }
 
     private double[] computeNormalEquationsLinearRegression() {

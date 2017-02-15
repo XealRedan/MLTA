@@ -8,6 +8,7 @@
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
             prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="fr.utbm.mlta.presenter.ApplicationPresenter">
@@ -28,10 +29,12 @@
                     <FlowPane>
                         <Label text="X position" prefWidth="200" />
                         <Slider fx:id="xSlider" min="-5" max="12" minorTickCount="10" showTickLabels="true"
-                                showTickMarks="true" prefWidth="200" onMouseReleased="#refreshLocallyWeightedLinearRegressionSeries" />
+                                showTickMarks="true" prefWidth="150" onMouseReleased="#refreshLocallyWeightedLinearRegressionSeries" />
+                        <TextField text="${xSlider.value}" prefWidth="50" />
                         <Label text="Sigma value" prefWidth="200" />
                         <Slider fx:id="sigmaSlider" min="0.1" max="10" minorTickCount="10" showTickLabels="true"
-                                showTickMarks="true" prefWidth="200" onMouseReleased="#refreshLocallyWeightedLinearRegressionSeries" />
+                                showTickMarks="true" prefWidth="150" onMouseReleased="#refreshLocallyWeightedLinearRegressionSeries" />
+                        <TextField text="${sigmaSlider.value}" prefWidth="50" />
                     </FlowPane>
                 </TitledPane>
             </panes>
