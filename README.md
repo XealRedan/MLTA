@@ -20,6 +20,8 @@ mvn jfx:native
 
 To avoid manually building the project, already built executables can be found here: https://github.com/XealRedan/MLTA/releases/tag/v1.0
 
+It requires to have a JRE 8 installed.
+
 ## Results
 
 Following figures illustrate the results of application of the linear regression algorithms on Leland dataset
