@@ -6,7 +6,10 @@
 
     <groupId>fr.utbm.mlta</groupId>
     <artifactId>MLTA</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <name>MLTA</name>
 
     <build>
         <plugins>
@@ -20,6 +23,64 @@
                     <testSource>1.8</testSource>
                     <testTarget>1.8</testTarget>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                <artifactId>launch4j-maven-plugin</artifactId>
+                <version>1.7.15</version>
+                <configuration>
+                    <headerType>gui</headerType>
+                    <outfile>target/mlta.exe</outfile>
+                    <jar>target/mlta-1.0.jar</jar>
+                    <errTitle>mlta</errTitle>
+                    <classPath>
+                        <mainClass>fr.utbm.mlta.Launcher</mainClass>
+                    </classPath>
+                    <jre>
+                        <minVersion>1.8.0</minVersion>
+                    </jre>
+                    <versionInfo>
+                        <fileVersion>1.0.0.0</fileVersion>
+                        <txtFileVersion>${project.version}</txtFileVersion>
+                        <fileDescription>${project.name}</fileDescription>
+                        <copyright>GPLv3</copyright>
+                        <productVersion>1.0.0.0</productVersion>
+                        <txtProductVersion>${project.version}</txtProductVersion>
+                        <productName>${project.name}</productName>
+                        <internalName>mlta</internalName>
+                        <originalFilename>mlta.exe</originalFilename>
+                    </versionInfo>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>l4j-clui</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
