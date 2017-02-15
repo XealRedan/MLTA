@@ -2,6 +2,7 @@ package fr.utbm.mlta;
 
 import com.airhacks.afterburner.injection.Injector;
 import fr.utbm.mlta.analysis.ILinearRegression;
+import fr.utbm.mlta.analysis.LocallyWeightedLinearRegression;
 import fr.utbm.mlta.analysis.NormalEquationsLinearRegression;
 import fr.utbm.mlta.data.DoubleDataFileParser;
 import fr.utbm.mlta.data.IDataParser;
@@ -32,9 +33,13 @@ public class Launcher extends Application {
         final Double[] yArray =  parser.parse(Launcher.class.getResourceAsStream("q2y.dat"));
 
         // Compute regression
-        final ILinearRegression linearRegression = new NormalEquationsLinearRegression();
+        final ILinearRegression normalEquationsLinearRegression = new NormalEquationsLinearRegression();
         final double[] normalEquationsResult =
-                linearRegression.compute(ArrayUtils.toPrimitive(xArray), ArrayUtils.toPrimitive(yArray));
+                normalEquationsLinearRegression.compute(ArrayUtils.toPrimitive(xArray), ArrayUtils.toPrimitive(yArray));
+
+        final LocallyWeightedLinearRegression locallyWeightedLinearRegression = new LocallyWeightedLinearRegression();
+        final double[] locallyWeightedLinearRegressionResult =
+                locallyWeightedLinearRegression.compute(ArrayUtils.toPrimitive(xArray), ArrayUtils.toPrimitive(yArray));
 
         // Build the context
         final Map<Object, Object> context = new HashMap<>();
