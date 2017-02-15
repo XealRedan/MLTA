@@ -16,6 +16,10 @@ The project is made in Java 8. It can be built easily with Maven using the comma
 mvn jfx:native
 ```
 
+## Downloads
+
+To avoid manually building the project, already built executables can be found here: https://github.com/XealRedan/MLTA/releases/tag/v1.0
+
 ## Results
 
 Following figures illustrate the results of application of the linear regression algorithms on Leland dataset
