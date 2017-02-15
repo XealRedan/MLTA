@@ -10,14 +10,20 @@ import org.apache.commons.math3.linear.RealMatrix;
  */
 public class LocallyWeightedLinearRegression implements ILinearRegression {
 
-    private double tau = 0.3;
+    private double x = 0;
+    private double sigma = 0.3;
 
     public LocallyWeightedLinearRegression() {
         //
     }
 
-    public LocallyWeightedLinearRegression(double tau) {
-        this.tau = tau;
+    public LocallyWeightedLinearRegression(double x) {
+        this.x = x;
+    }
+
+    public LocallyWeightedLinearRegression(double x, double sigma) {
+        this.x = x;
+        this.sigma = sigma;
     }
 
     @Override
@@ -28,7 +34,7 @@ public class LocallyWeightedLinearRegression implements ILinearRegression {
         // Compute weights
         final double[] weights = new double[x.length];
         for(int idx = 0; idx < weights.length; idx++) {
-            weights[idx] = weight(0, x[idx], tau);
+            weights[idx] = weight(this.x, x[idx], sigma);
         }
 
         final RealMatrix weightMat = MatrixUtils.createRealDiagonalMatrix(weights);
@@ -39,12 +45,20 @@ public class LocallyWeightedLinearRegression implements ILinearRegression {
         return theta.getColumnVector(0).toArray();
     }
 
-    public double getTau() {
-        return tau;
+    public double getX() {
+        return x;
     }
 
-    public void setTau(double tau) {
-        this.tau = tau;
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getSigma() {
+        return sigma;
+    }
+
+    public void setSigma(double sigma) {
+        this.sigma = sigma;
     }
 
     private double weight(double v, double input, double tau) {

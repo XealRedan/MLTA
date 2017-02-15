@@ -29,23 +29,15 @@ public class Launcher extends Application {
     public void start(Stage primaryStage) throws Exception {
         // Gets the data from the files
         final IDataParser<Double> parser = new DoubleDataFileParser();
-        final Double[] xArray =  parser.parse(Launcher.class.getResourceAsStream("q2x.dat"));
-        final Double[] yArray =  parser.parse(Launcher.class.getResourceAsStream("q2y.dat"));
-
-        // Compute regression
-        final ILinearRegression normalEquationsLinearRegression = new NormalEquationsLinearRegression();
-        final double[] normalEquationsResult =
-                normalEquationsLinearRegression.compute(ArrayUtils.toPrimitive(xArray), ArrayUtils.toPrimitive(yArray));
-
-        final LocallyWeightedLinearRegression locallyWeightedLinearRegression = new LocallyWeightedLinearRegression();
-        final double[] locallyWeightedLinearRegressionResult =
-                locallyWeightedLinearRegression.compute(ArrayUtils.toPrimitive(xArray), ArrayUtils.toPrimitive(yArray));
+        final double[] xArray =
+                ArrayUtils.toPrimitive(parser.parse(Launcher.class.getResourceAsStream("q2x.dat")));
+        final double[] yArray =
+                ArrayUtils.toPrimitive(parser.parse(Launcher.class.getResourceAsStream("q2y.dat")));
 
         // Build the context
         final Map<Object, Object> context = new HashMap<>();
         context.put("dataX", xArray);
         context.put("dataY", yArray);
-        context.put("normalEquationsResult", normalEquationsResult);
 
         Injector.setConfigurationSource(context::get);
 

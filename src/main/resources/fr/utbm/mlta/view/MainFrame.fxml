@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.ScatterChart?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.chart.LineChart?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1"
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Slider?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="fr.utbm.mlta.presenter.ApplicationPresenter">
     <center>
-        <LineChart fx:id="chart" prefHeight="400" prefWidth="600">
+        <LineChart fx:id="chart" prefHeight="600" prefWidth="600">
             <xAxis>
                 <NumberAxis side="BOTTOM"/>
             </xAxis>
@@ -17,4 +21,20 @@
             </yAxis>
         </LineChart>
     </center>
+    <right>
+        <Accordion>
+            <panes>
+                <TitledPane text="LWLR parameters" prefHeight="600" prefWidth="200">
+                    <FlowPane>
+                        <Label text="X position" prefWidth="200" />
+                        <Slider fx:id="xSlider" min="-5" max="12" minorTickCount="10" showTickLabels="true"
+                                showTickMarks="true" prefWidth="200" onMouseReleased="#refreshLocallyWeightedLinearRegressionSeries" />
+                        <Label text="Sigma value" prefWidth="200" />
+                        <Slider fx:id="sigmaSlider" min="0.1" max="10" minorTickCount="10" showTickLabels="true"
+                                showTickMarks="true" prefWidth="200" onMouseReleased="#refreshLocallyWeightedLinearRegressionSeries" />
+                    </FlowPane>
+                </TitledPane>
+            </panes>
+        </Accordion>
+    </right>
 </BorderPane>
