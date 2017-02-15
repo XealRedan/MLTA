@@ -32,6 +32,9 @@
                 <configuration>
                     <vendor>MLTA</vendor>
                     <mainClass>fr.utbm.mlta.Launcher</mainClass>
+                    <bundleArguments>
+                        <runtime />
+                    </bundleArguments>
                 </configuration>
             </plugin>
         </plugins>
