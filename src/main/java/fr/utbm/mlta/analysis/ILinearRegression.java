@@ -5,5 +5,5 @@ package fr.utbm.mlta.analysis;
  * @author Alexandre Lombard
  */
 public interface ILinearRegression {
-
+    double[] compute(double[] x, double[] y);
 }

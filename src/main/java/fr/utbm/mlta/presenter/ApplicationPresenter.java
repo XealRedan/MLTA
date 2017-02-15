@@ -21,15 +21,13 @@ public class ApplicationPresenter implements Initializable {
     // Model attributes
     @Inject private Double[] dataX;
     @Inject private Double[] dataY;
+    @Inject private double[] normalEquationsResult;
 
     // View attributes
     @FXML private ScatterChart<Double, Double> chart;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Perform linear regression
-        // TODO
-
         // Plot data
         final XYChart.Series<Double, Double> raw = new XYChart.Series<>();
         raw.setName("Input");
@@ -39,5 +37,14 @@ public class ApplicationPresenter implements Initializable {
         }
 
         chart.getData().add(raw);
+
+        final XYChart.Series<Double, Double> normalEquations = new XYChart.Series<>();
+        normalEquations.setName("Normal equations LR");
+
+        for(int idx = 0; idx < dataX.length; idx++) {
+            normalEquations.getData().add(new XYChart.Data<>(dataX[idx], normalEquationsResult[0] * dataX[idx]));
+        }
+
+        chart.getData().add(normalEquations);
     }
 }
